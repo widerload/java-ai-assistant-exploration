@@ -1,14 +1,14 @@
 import org.exploration.sinks.MemorySink; // CH: Added to resolve error with the memorySink field.
-import org.junit.jupiter.api.BeforeAll; // CH: Updated to correct path.
+import org.junit.jupiter.api.BeforeEach; // CH: Updated to correct path.
 import org.junit.jupiter.api.Test; // CH: Updated to correct path.
 import static org.junit.jupiter.api.Assertions.*; // CH: Updated to resolve path issue.
 import java.util.List;
 
 public class MemorySinkTest {
-    private static MemorySink memorySink; // CH: Changed to static for setUp method.
+    private MemorySink memorySink;
 
-    @BeforeAll
-    public static void setUp() { // CH: Amended to resolve error with BeforeAll annotation not being used on a static method.
+    @BeforeEach // CH: Amended to BeforeEach as each separate test relies on a new MemorySink.
+    public void setUp() {
         memorySink = new MemorySink();
     }
 

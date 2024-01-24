@@ -5,11 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
 public class MemorySinkTest {
-    private MemorySink memorySink;
+    private static MemorySink memorySink;
 
     @BeforeAll
-    public void setUp() {
-        this.memorySink = new MemorySink();
+    public static void setUp() {
+        memorySink = new MemorySink();
     }
 
     @Test

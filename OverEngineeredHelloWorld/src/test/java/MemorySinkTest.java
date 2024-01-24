@@ -3,12 +3,12 @@
 
 import org.exploration.sinks.MemorySink;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test; // Edited to the correct class path.
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*; //Edited to the correct class path.
 
 public class MemorySinkTest {
 
@@ -25,7 +25,7 @@ public class MemorySinkTest {
         // Then
         List<String> memory = memorySink.getMemory();
         assertEquals(1, memory.size());
-        assertEquals("Hello", memory.get(0));
+        assertEquals("Hello", memory.getFirst()); // Edited to resolve warning about a code smell.
     }
 
     // Can add multiple strings to memory list using output method
@@ -145,7 +145,7 @@ public class MemorySinkTest {
         // When
         List<String> list = new ArrayList<>();
         list.add(null);
-        memorySink.output(list);
+        memorySink.output(String.valueOf(list)); // Edited to resolve error supplying a list instead of a string.
     
         // Then
         List<String> memory = memorySink.getMemory();
@@ -161,7 +161,7 @@ public class MemorySinkTest {
         // When
         List<String> list = new ArrayList<>();
         list.add("");
-        memorySink.output(list);
+        memorySink.output(String.valueOf(list)); // Edited to resolve error supplying a list instead of a string.
     
         // Then
         List<String> memory = memorySink.getMemory();
@@ -178,7 +178,7 @@ public class MemorySinkTest {
         List<String> list = new ArrayList<>();
         list.add(null);
         list.add("");
-        memorySink.output(list);
+        memorySink.output(String.valueOf(list)); // Edited to resolve error supplying a list instead of a string.
     
         // Then
         List<String> memory = memorySink.getMemory();
@@ -197,7 +197,7 @@ public class MemorySinkTest {
         // Then
         List<String> memory = memorySink.getMemory();
         assertEquals(1, memory.size());
-        assertEquals("This is a very long string that exceeds the normal length of a string", memory.get(0));
+        assertEquals("This is a very long string that exceeds the normal length of a string", memory.getFirst()); // Edited to resolve warning about a code smell.
     }
 
 }

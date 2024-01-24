@@ -1,4 +1,4 @@
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 public class MemorySinkTest {
     private MemorySink memorySink;
 
-    @Before
+    @BeforeAll
     public void setUp() {
         this.memorySink = new MemorySink();
     }

@@ -18,7 +18,7 @@ public class MemorySinkTest {
 
         List<String> memory = memorySink.getMemory();
         assertEquals(1, memory.size());
-        assertEquals("Hello", memory.get(0));
+        assertEquals("Hello", memory.getFirst()); // CH: Updated to resolve code warning about using get(0)
     }
 
     @Test
